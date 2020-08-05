@@ -3,6 +3,8 @@
     --color1: #7159c1; 
     --color2: white;
     --color3: #777; 
+    --color4: #555;
+    --color5: #f7df1d;  
 }
 
 *{
@@ -61,7 +63,7 @@ header{
  .card{
      background-color: var(--color2);
      box-shadow: 0px 2px 6px 7px rgba(0, 0, 0, 0.7);
-     height: 400px;
+     min-height: 400px;
      margin: 45px auto;
      width: 800px;
      display: grid;
@@ -87,3 +89,79 @@ header{
          opacity: 1;
      }
  }
+
+.details{
+    padding: 32px;
+
+}
+.details .item{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    padding: 16px;
+}
+
+.details .item:last-child{
+    border: none;
+}
+.details h3, 
+.details .item div:nth-child(1){
+    color: var(--color3);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .item div:nth-child(2){
+    color: var(--color4);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color1);
+}
+
+.details .item span{
+    padding: 8px 16px; 
+    background-color: var(--color5);
+    border-radius: 16px;
+    color: var(--color3);
+    margin-left: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* Estilizando formulario */
+
+input{
+    width: 100%;
+    outline: none;
+    color: var(--color4);
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+input[type="radio"]{
+    width: initial;
+    margin-right: 4px;
+}
+input::placeholder{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"]{
+    padding: 8px 32px;
+    background-color: var(--color1);
+    color: var(--color2);
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+}
