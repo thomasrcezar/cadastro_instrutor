@@ -1,1 +1,22 @@
-{"avatar_url":"http://www.google.com","name":"Thomas Cezar","birth":"1999-03-05","gender":"on","services":"5km"}
+{
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "http://www.fitness.com",
+      "name": "Thomas Cezar",
+      "birth": 783993600000,
+      "gender": "M",
+      "created_at": 1596825803192,
+      "services": "5km, 10km"
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://www.google.com",
+      "name": "Sra google",
+      "birth": 839808000000,
+      "gender": "M",
+      "created_at": 1596826011360,
+      "services": "5km"
+    }
+  ]
+}

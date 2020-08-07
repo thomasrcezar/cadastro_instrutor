@@ -1,4 +1,5 @@
 const fs = require('fs');
+const data = require('./data.json');
 
 // create 
 exports.post = (req,res)=>{
@@ -10,16 +11,44 @@ exports.post = (req,res)=>{
             return res.send('Please, fill all fields')
         }
     }
-    fs.writeFile("data.json", JSON.stringify(req.body), (err)=>{
-        if (err) return res.send("Write file error"); 
-    
-        return res.render("instructors")
+    let { avatar_url, birth, name, services, gender} = req.body
+
+    birth = Date.parse(birth);
+    const created_at = Date.now();
+    const id = Number(data.instructors.length + 1);
+
+
+    data.instructors.push({
+        id,
+        avatar_url,
+        name,
+        birth,
+        gender,
+        created_at,
+        services,
     })
 
-    return res.send(req.body)
+
+    fs.writeFile("data.json", JSON.stringify(data,null,2), (err)=>{
+        if (err) return res.send("Write file error"); 
+    
+        return res.redirect("/instructors")
+    })
+
+   
 }
 
-//update
+// show
 
+exports.show = (req,res)=>{
+    const { id } = req.params
 
-//delete 
+    const foundInstructor = data.instructors.find((instructor)=>{
+        return instructor.id == id
+    }); 
+
+    if(!foundInstructor) return res.send("Instructor not found!")
+
+    return res.send(foundInstructor)
+
+}
