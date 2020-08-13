@@ -4,7 +4,8 @@
     --color2: white;
     --color3: #777; 
     --color4: #555;
-    --color5: #f7df1d;  
+    --color5: #f7df1d;
+    --color6: lightcoral;   
 }
 
 *{
@@ -173,4 +174,9 @@ a.button{
     text-align: center;
     text-decoration: none;
     
+}
+
+#form-delete button[type="submit"]{
+    margin-top: 8px;
+    background-color: var(--color6);
 }
