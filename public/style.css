@@ -140,7 +140,7 @@ header{
 
 /* Estilizando formulario */
 
-input{
+input,select{
     width: 100%;
     outline: none;
     color: var(--color4);

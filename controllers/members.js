@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { age, date } = require('../utils');
+const { date } = require('../utils');
 
 exports.index = (req,res)=>{
     return res.render("members/index", {members: data.members})
@@ -18,21 +18,20 @@ exports.post = (req,res)=>{
             return res.send('Please, fill all fields')
         }
     }
-    let { avatar_url, birth, name, services, gender} = req.body
+    
 
-    birth = Date.parse(birth);
-    const created_at = Date.now();
-    const id = Number(data.members.length + 1);
-
+    birth = Date.parse(req.body.birth);
+   
+    let id = 1
+    const lastMember =  data.members[data.members.length-1];
+    if(lastMember){
+        id = lastMember.id + 1 
+    }
 
     data.members.push({
-        id,
-        avatar_url,
-        name,
-        birth,
-        gender,
-        created_at,
-        services,
+       ...req.body,
+       id,
+       birth
     })
 
 
@@ -58,7 +57,7 @@ exports.show = (req,res)=>{
 
     const member = {
         ...foundMember,
-        age: age(foundMember.birth),  
+        birth: date(foundMember.birth).birthDay,  
        
     }
 
@@ -77,7 +76,7 @@ exports.edit = (req,res) =>{
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth)
+        birth: date(foundMember.birth).iso
     }
 
    
