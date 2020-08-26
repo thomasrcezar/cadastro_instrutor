@@ -61,7 +61,7 @@ module.exports ={
         Instructor.update(req.body, ()=> res.redirect(`instructors/${req.body.id}`))
     },
     delete(req, res){
-        return 
+        Instructor.delete(req.body.id, ()=> res.redirect('/instructors'))
     }
 }
 
